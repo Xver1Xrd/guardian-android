@@ -2,4 +2,5 @@
 **/build/
 local.properties
 *.apk
+dist/
 .idea/

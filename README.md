@@ -19,6 +19,7 @@ Debug APK: `app/build/outputs/apk/debug/app-debug.apk` после сборки. 
 - [Модель угроз](docs/THREAT_MODEL.md)
 - [Криптографический формат](docs/CRYPTO_FORMAT.md)
 - [Результаты тестов](docs/TEST_RESULTS.md)
+- [Примечания к тестовому выпуску](docs/RELEASE_PREVIEW.md)
 - [План работ](docs/ROADMAP.md)
 - [Проверенные источники](docs/RESEARCH.md)
 - [Текущая проверка безопасности](docs/SECURITY_REVIEW.md)
