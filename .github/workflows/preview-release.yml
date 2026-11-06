@@ -28,5 +28,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --draft --prerelease --title "$GITHUB_REF_NAME"
           gh release upload "$GITHUB_REF_NAME" dist/Guardian-v0.1-preview-debug.apk dist/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --clobber
           gh release edit "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" --draft=false --prerelease
