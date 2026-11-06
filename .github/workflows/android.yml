@@ -11,8 +11,7 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - uses: android-actions/setup-android@v3
-      - run: yes | sdkmanager 'platforms;android-37.2' 'build-tools;36.0.0' 'platform-tools'
+      - run: sdkmanager --install 'platforms;android-37.2' 'build-tools;36.0.0' 'platform-tools'
       - run: python3 scripts/check_bidi.py
       - run: ./gradlew :core:crypto:test :feature:generator:test :feature:authenticator:test :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug --no-daemon
       - uses: actions/upload-artifact@v4
