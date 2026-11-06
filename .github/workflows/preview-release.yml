@@ -14,10 +14,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - run: |
-          sdkmanager_bin=$(find "$ANDROID_HOME/cmdline-tools" -maxdepth 2 -type f -name sdkmanager -print -quit)
-          test -n "$sdkmanager_bin"
-          "$sdkmanager_bin" --install 'platforms;android-37.2' 'build-tools;36.0.0' 'platform-tools'
+      - uses: android-actions/setup-android@v4
+      - run: sdkmanager --install 'platforms;android-37.2' 'build-tools;36.0.0' 'platform-tools'
       - run: python3 scripts/check_bidi.py
       - run: ./gradlew :core:crypto:test :feature:generator:test :feature:authenticator:test :app:assembleDebug :app:lintDebug --no-daemon
       - name: Prepare APK and checksum
