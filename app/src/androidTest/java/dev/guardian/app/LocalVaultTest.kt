@@ -22,7 +22,7 @@ class LocalVaultTest {
         val context = object : ContextWrapper(base) {
             override fun getNoBackupFilesDir(): File = isolated
         }
-        val password = "synthetic test password".toCharArray()
+        val password = "test-pass1".toCharArray()
         try {
             val first = LocalVault(context)
             Log.i("GuardianTest", "create started")

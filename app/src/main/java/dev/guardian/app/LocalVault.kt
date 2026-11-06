@@ -44,6 +44,7 @@ internal class LocalVault(context: Context) {
 
     suspend fun create(password: CharArray, params: KdfParameters = KdfParameters()) = withContext(Dispatchers.IO) {
         check(!exists) { "Хранилище уже существует" }
+        require(password.size in 1..10) { "Master password must contain 1 to 10 characters" }
         root.mkdirs()
         val (header, newKey) = VaultCrypto.create(password, params)
         try {
